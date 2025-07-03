@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../components/logo';
 import CustomButton from '../components/CustomButton';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,7 +19,7 @@ const Navbar = () => {
     
     // Jika tidak di halaman beranda, arahkan ke beranda dulu
     if (location.pathname !== '/') {
-      window.location.href = `/#${sectionId}`;
+      navigate(`/#${sectionId}`);
       return;
     }
     
@@ -45,24 +46,36 @@ const Navbar = () => {
           <div className="hidden md:flex items-center justify-between w-full">
             {/* Menu items centered */}
             <div className="flex items-center space-x-8 mx-auto">
-              <button 
-                onClick={() => scrollToSection()}
+              <Link 
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection();
+                }}
                 className="text-white hover:text-gray-300 transition-colors duration-300"
               >
                 Beranda
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
+              </Link>
+              <Link 
+                to="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('about');
+                }}
                 className="text-white hover:text-gray-300 transition-colors duration-300"
               >
                 Tentang
-              </button>
-              <button 
-                onClick={() => scrollToSection('portfolio')}
+              </Link>
+              <Link 
+                to="#portfolio"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('portfolio');
+                }}
                 className="text-white hover:text-gray-300 transition-colors duration-300"
               >
                 Portofolio
-              </button>
+              </Link>
             </div>
 
             <div>
@@ -116,24 +129,36 @@ const Navbar = () => {
           <div className="md:hidden mt-4">
             <div className="flex flex-col items-center">
               <div className="flex justify-between w-full max-w-xs mb-4">
-                <button 
-                  onClick={() => scrollToSection()}
+                <Link 
+                  to="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection();
+                  }}
                   className="flex-1 text-center text-white hover:text-gray-300 transition-colors duration-300 py-2 px-1 whitespace-nowrap"
                 >
                   Beranda
-                </button>
-                <button 
-                  onClick={() => scrollToSection('about')}
+                </Link>
+                <Link 
+                  to="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('about');
+                  }}
                   className="flex-1 text-center text-white hover:text-gray-300 transition-colors duration-300 py-2 px-1 whitespace-nowrap"
                 >
                   Tentang
-                </button>
-                <button 
-                  onClick={() => scrollToSection('portfolio')}
+                </Link>
+                <Link 
+                  to="#portfolio"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('portfolio');
+                  }}
                   className="flex-1 text-center text-white hover:text-gray-300 transition-colors duration-300 py-2 px-1 whitespace-nowrap"
                 >
                   Portofolio
-                </button>
+                </Link>
               </div>
               <a 
                 href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=codira85@gmail.com"

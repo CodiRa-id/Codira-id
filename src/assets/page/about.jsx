@@ -3,6 +3,7 @@ import { FiUsers, FiArrowRight, FiStar } from 'react-icons/fi';
 import { TbLayersIntersect } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import CustomButton from '../components/CustomButton';
+import Codira from '../img/Codira.webp';
 
 // Custom hook for scroll animations
 const useScrollAnimation = (ref, delay = 0) => {
@@ -115,7 +116,7 @@ const About = () => {
           <div ref={imageRef} {...imageAnimation} className="lg:w-1/3">
             <div className="image-container rounded-2xl overflow-hidden shadow-2xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:scale-[1.02]">
               <img 
-                src="./public/Codira.webp" 
+                src={Codira}
                 alt="Tim kami" 
                 className="w-full h-auto object-cover"
               />

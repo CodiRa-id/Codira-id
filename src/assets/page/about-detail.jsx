@@ -113,7 +113,7 @@ const AboutDetail = () => {
     <div className="min-h-screen bg-gray-900 text-white">
 
       {/* Hero Section - 3/4 of viewport height */}
-      <div className="relative h-[75vh] min-h-[500px] flex items-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gray-950">
+      <div className="relative h-[75vh] min-h-[500px] flex items-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gray-950 ">
         {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-950/90 via-gray-950/80 to-gray-950/70"></div>
         {/* Decorative background elements */}

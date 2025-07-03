@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FiMail, FiPhone, FiInstagram } from 'react-icons/fi';
 import { FaYoutube } from 'react-icons/fa';
 import Logo from '../components/logo';
@@ -31,6 +31,7 @@ const useFadeInUp = (ref) => {
 
 const Footer = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const companyRef = useRef(null);
   const linksRef = useRef(null);
   const contactRef = useRef(null);
@@ -44,6 +45,12 @@ const Footer = () => {
 
   // Fungsi untuk scroll ke elemen dengan smooth behavior
   const scrollToSection = (sectionId) => {
+    // Jika tidak di halaman beranda, arahkan ke beranda dulu
+    if (location.pathname !== '/') {
+      navigate(`/#${sectionId}`);
+      return;
+    }
+    
     // Jika sectionId kosong (beranda), scroll ke atas
     if (!sectionId) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
